@@ -1,15 +1,11 @@
 # Benge Software LLC Website
 
-Static website for https://bengesoftwarellc.com hosted with GitHub Pages.
+Static company website for [bengesoftwarellc.com](https://bengesoftwarellc.com), hosted with GitHub Pages.
 
-## Local development
+## Local preview
 
-Open `index.html` in a browser.
+The site has no build step or runtime dependencies. Open `index.html` directly, or serve the repository root with any static file server.
 
-## Deployment
+## Publishing
 
-1. Push this repository to GitHub.
-2. Go to **Settings → Pages**.
-3. Select **Deploy from branch**.
-4. Choose `main` and `/ (root)`.
-5. Set the custom domain to `bengesoftwarellc.com`.
+GitHub Pages should publish from the repository root. The root-level `CNAME` configures the custom domain, and all internal links are relative for compatibility with direct static hosting.
