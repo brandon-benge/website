@@ -1,0 +1,24 @@
+{
+  "version": "2.0.0",
+  "tasks": [
+    {
+      "label": "Preview Benge Software website",
+      "type": "shell",
+      "command": "python3 -m http.server 8000 & preview_server_pid=$!; trap 'kill $preview_server_pid 2>/dev/null' EXIT INT TERM; sleep 1; open http://localhost:8000; wait $preview_server_pid",
+      "options": {
+        "cwd": "${workspaceFolder}"
+      },
+      "isBackground": true,
+      "problemMatcher": [],
+      "presentation": {
+        "reveal": "always",
+        "panel": "dedicated",
+        "clear": true
+      },
+      "group": {
+        "kind": "build",
+        "isDefault": true
+      }
+    }
+  ]
+}
