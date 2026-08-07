@@ -13,3 +13,4 @@ In VS Code, run **Tasks: Run Task** from the Command Palette and select
 ## Publishing
 
 GitHub Pages should publish from the repository root. The root-level `CNAME` configures the custom domain, and all internal links are relative for compatibility with direct static hosting.
+
