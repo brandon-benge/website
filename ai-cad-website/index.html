@@ -3,109 +3,213 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>AI CAD — design real projects with AI, in your own repository</title>
-<meta name="description" content="AI CAD turns natural-language requests into buildable, parametric Python CAD projects, versioned in a repository you control.">
-<link rel="icon" href="assets/icon.png">
+<title>MakeItOurs — describe it, and watch it get built</title>
+<meta name="description" content="MakeItOurs turns plain-language requests into real, exact CAD models, versioned in a Git repository, on Mac, iPhone, and iPad.">
+<link rel="icon" href="assets/icon.svg" type="image/svg+xml">
 <link rel="stylesheet" href="styles.css">
 </head>
 <body>
 <header class="site">
   <div class="wrap">
     <a class="brand" href="index.html">
-      <img src="assets/icon.png" alt="AI CAD icon">
-      AI CAD
+      <img src="assets/icon.svg" alt="MakeItOurs icon">
+      MakeItOurs
     </a>
     <nav class="site">
-      <a href="index.html">Getting Started</a>
+      <a href="getting-started.html">Getting Started</a>
       <a href="roadmap.html">Roadmap</a>
       <a href="support.html">Support</a>
       <a href="privacy.html">Privacy</a>
+      <a href="security.html">Security</a>
     </nav>
   </div>
 </header>
 
 <main>
   <div class="wrap">
-    <section class="hero">
-      <img class="icon" src="assets/icon.png" alt="AI CAD app icon">
-      <h1>Describe it. AI CAD builds it. Your repo keeps it.</h1>
+    <section class="hero brand-hero">
+      <img class="icon" src="assets/icon.svg" alt="MakeItOurs app icon">
+      <h1 class="wordmark">MakeIt<span class="accent">O</span>urs</h1>
+      <p class="tagline-short">
+        Describe it. Make it. Share it. <span class="accent">Build it.</span>
+      </p>
       <p class="tagline">
-        AI CAD turns plain-language requests into real, parametric Python CAD
-        projects — versioned and stored in a repository you already own, on
-        Mac and iPhone.
+        Tell MakeItOurs what you want in plain language and watch it turn
+        your ideas into a real 3D model. Inspect it, measure precisely, and
+        download blueprints or files for other applications. Every version
+        is saved so you can always go back, and you can share your project
+        so others can work on it with you — on Mac, iPhone, and iPad.
+      </p>
+      <div class="feature-row">
+        <div class="feature-item">
+          <span class="feature-icon-tile describe">💬</span>
+          <div><strong>Describe</strong><span class="muted">your idea</span></div>
+        </div>
+        <div class="feature-item">
+          <span class="feature-icon-tile make">📦</span>
+          <div><strong>Make it</strong><span class="muted">in 3D</span></div>
+        </div>
+        <div class="feature-item">
+          <span class="feature-icon-tile inspect">📏</span>
+          <div><strong>Inspect</strong><span class="muted">and measure</span></div>
+        </div>
+        <div class="feature-item">
+          <span class="feature-icon-tile share">👥</span>
+          <div><strong>Share</strong><span class="muted">and collaborate</span></div>
+        </div>
+        <div class="feature-item">
+          <span class="feature-icon-tile export">⬇️</span>
+          <div><strong>Export</strong><span class="muted">blueprints &amp; files</span></div>
+        </div>
+      </div>
+      <p class="tech-note">
+        ⚙️ Built with parametric Python CAD, versioned in Git.
       </p>
       <div class="cta-row">
+        <a class="btn primary" href="getting-started.html">Get Started</a>
         <span class="btn secondary" aria-disabled="true">Coming soon to the App Store</span>
         <a class="btn secondary" href="roadmap.html">See what's coming next</a>
       </div>
     </section>
 
-    <h2>Getting started</h2>
-    <ol class="step-list">
-      <li>
-        <span class="step-num">1</span>
-        <div>
-          <strong>Install AI CAD</strong>
-          <div class="muted">Available on Mac and iPhone/iPad once published to the App Store.</div>
-        </div>
-      </li>
-      <li>
-        <span class="step-num">2</span>
-        <div>
-          <strong>Connect your repository</strong>
-          <div class="muted">
-            AI CAD currently connects via the AI CAD GitHub App, so your
-            project's source, history, and generated files live in a
-            repository you control — not on a server we run. Support for
-            other ways to host your own project is part of the
-            <a href="roadmap.html">bigger roadmap</a>.
-          </div>
-        </div>
-      </li>
-      <li>
-        <span class="step-num">3</span>
-        <div>
-          <strong>Start a project</strong>
-          <div class="muted">Create a new project from a template, or import one you already have.</div>
-        </div>
-      </li>
-      <li>
-        <span class="step-num">4</span>
-        <div>
-          <strong>Ask for what you want</strong>
-          <div class="muted">
-            Describe the change in plain language. AI CAD uses your choice of
-            AI provider to propose Python source changes, then validates and
-            builds them before you see a preview.
-          </div>
-        </div>
-      </li>
-      <li>
-        <span class="step-num">5</span>
-        <div>
-          <strong>Review, preview, and push</strong>
-          <div class="muted">
-            Nothing is accepted automatically. Review the build, then commit
-            and push to your repository whenever you're ready.
-          </div>
-        </div>
-      </li>
-    </ol>
+    <section class="journey" aria-labelledby="journey-title">
+      <p class="eyebrow">A real project, start to finish</p>
+      <h2 id="journey-title">Describe it. Build it. Make it yours.</h2>
+      <p class="section-lede">
+        Follow one request across iPhone and Mac: add a swing set on the east
+        side of the yard, 15 feet south of the pool, then inspect, share, and
+        export the result.
+      </p>
 
-    <h2>Bring your own infrastructure</h2>
-    <p>
-      AI CAD doesn't run its own AI backend, and it doesn't hold your project
-      hostage on a server we run. You connect the AI provider you already
-      trust — OpenAI, Anthropic, Google, OpenRouter, Groq, xAI, DeepInfra,
-      Mistral, or OpenCode — using your own API key, stored only on your
-      device, while your project itself lives in a repository you control.
-      See the <a href="privacy.html">Privacy Policy</a> for exactly what that
-      means for your data.
+      <div class="journey-grid">
+        <article class="journey-card phone-demo">
+          <div class="journey-step"><span>1</span> iPhone</div>
+          <h3>Describe the idea</h3>
+          <p>Choose your Git project, bring your own AI infrastructure, and ask for the change in everyday language.</p>
+          <video controls muted playsinline preload="metadata" aria-label="Describe a swing-set idea in MakeItOurs on iPhone">
+            <source src="assets/journey/01-describe-on-iphone.mp4" type="video/mp4">
+          </video>
+        </article>
+
+        <article class="journey-card phone-demo">
+          <div class="journey-step"><span>2</span> iPhone</div>
+          <h3>See the 3D result</h3>
+          <p>Open the completed build, fit it to the screen, and orbit around the updated property model.</p>
+          <video controls muted playsinline preload="metadata" aria-label="Review the completed swing-set build in 3D on iPhone">
+            <source src="assets/journey/02-build-and-3d-on-iphone.mp4" type="video/mp4">
+          </video>
+        </article>
+
+        <article class="journey-card mac-demo">
+          <div class="journey-step"><span>3</span> Mac</div>
+          <h3>Inspect, measure, and iterate</h3>
+          <p>Select model parts, verify exact dimensions, then open Requests to watch the AI agent refine a first attempt that needs a little… playground supervision.</p>
+          <video controls muted playsinline preload="metadata" aria-label="Inspect the swing-set model and request a refinement on Mac">
+            <source src="assets/journey/03-inspect-and-measure-on-mac.mp4" type="video/mp4">
+          </video>
+        </article>
+
+        <article class="journey-card phone-demo">
+          <div class="journey-step"><span>4</span> iPhone</div>
+          <h3>Review and share</h3>
+          <p>Check the live model away from your desk, then share its URL with a collaborator.</p>
+          <video controls muted playsinline preload="metadata" aria-label="Review and share the live 3D model from iPhone">
+            <source src="assets/journey/04-review-and-share-on-iphone.mp4" type="video/mp4">
+          </video>
+        </article>
+
+        <article class="journey-card mac-demo">
+          <div class="journey-step"><span>5</span> Mac</div>
+          <h3>Take the files with you</h3>
+          <p>Open drawings and export the blueprints, model formats, schedules, and source files your next tool needs.</p>
+          <video controls muted playsinline preload="metadata" aria-label="Open drawings and export project files on Mac">
+            <source src="assets/journey/05-drawings-and-exports-on-mac.mp4" type="video/mp4">
+          </video>
+        </article>
+      </div>
+
+      <aside class="iteration-note">
+        <strong>The first draft is allowed to look a little funny.</strong>
+        Generative CAD is a conversation, not a magic trick. Complex objects
+        commonly need one to three focused follow-up requests; MakeItOurs keeps
+        every change inspectable, testable, and reversible while you refine it.
+      </aside>
+    </section>
+
+    <h2>What you get</h2>
+    <p class="section-lede">
+      Four things every project comes with, no matter which platform you
+      start on.
     </p>
+    <div class="feature-grid">
+      <div class="card">
+        <h3>💬 Plain language in</h3>
+        <p>
+          Describe the change you want. MakeItOurs proposes real Python
+          source changes, validates and builds them, and shows you a
+          preview before anything is accepted.
+        </p>
+      </div>
+      <div class="card">
+        <h3>📐 Exact, inspectable models</h3>
+        <p>
+          Every build opens in an interactive 3D viewer — orbit, select
+          elements, and measure with exact dimensions, not an
+          approximation.
+        </p>
+      </div>
+      <div class="card">
+        <h3>📤 Export to what you already use</h3>
+        <p>
+          Download drawings for reference, or export the full model to
+          STEP, IFC4, GLB, SVG, DXF, PDF, CSV, JSON, and Markdown for
+          whatever CAD, BIM, or spreadsheet tool you use next.
+        </p>
+      </div>
+      <div class="card">
+        <h3>🤝 Yours to keep and share</h3>
+        <p>
+          Every version is saved so you can always go back. Your project
+          lives in a Git repository you control, and you can share it so
+          others can work on it with you.
+        </p>
+      </div>
+    </div>
+
+    <h2>Your infrastructure, not ours</h2>
+    <p>
+      MakeItOurs doesn't run its own AI backend or hold your project hostage
+      on a server we run. You bring your own GitHub account and your own AI
+      provider key — OpenAI, Anthropic, Google, OpenRouter, Groq, xAI,
+      DeepInfra, Mistral, or OpenCode — and MakeItOurs uses exactly the
+      model you picked, never switching on its own. See
+      <a href="getting-started.html#byoi">Bring your own infrastructure</a>
+      for the full detail, or <a href="security.html">Security</a> for
+      exactly how credentials are transported and stored.
+    </p>
+
+    <h2>Mac, iPhone, and iPad — your choice</h2>
+    <p>
+      The <strong>Mac app</strong> is the faster, more capable way to
+      manage a project: it builds and previews locally. The
+      <strong>iPhone and iPad app</strong> is the remote option — it
+      submits requests through GitHub Actions, so you can start and check
+      on a project without a Mac nearby. Use either on its own, or both
+      together on the same repository.
+    </p>
+
+    <div class="card">
+      <strong>Ready to try it?</strong>
+      <p class="muted" style="margin: 8px 0 0;">
+        <a href="getting-started.html">Getting Started</a> walks through
+        everything you need — an AI provider key, a GitHub account, and
+        platform-specific setup — before your first project.
+      </p>
+    </div>
 
     <h2>From Benge Software LLC</h2>
     <p>
-      AI CAD is built by <a class="business-link" href="https://bengesoftwarellc.com" target="_blank" rel="noopener">Benge Software LLC</a>.
+      MakeItOurs is built by <a class="business-link" href="https://bengesoftwarellc.com" target="_blank" rel="noopener">Benge Software LLC</a>.
     </p>
   </div>
 </main>
@@ -113,9 +217,11 @@
 <footer class="site">
   <div class="wrap">
     <div class="links">
+      <a href="getting-started.html">Getting Started</a>
       <a href="roadmap.html">Roadmap</a>
       <a href="support.html">Support</a>
       <a href="privacy.html">Privacy Policy</a>
+      <a href="security.html">Security</a>
     </div>
     <div>
       &copy; 2026 Benge Software LLC ·

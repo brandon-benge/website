@@ -4,7 +4,7 @@
     {
       "label": "Preview Benge Software website",
       "type": "shell",
-      "command": "python3 -m http.server 8000 & preview_server_pid=$!; trap 'kill $preview_server_pid 2>/dev/null' EXIT INT TERM; sleep 1; open http://localhost:8000; wait $preview_server_pid",
+      "command": "python3 -m http.server 8000 --bind 0.0.0.0 & preview_server_pid=$!; trap 'kill $preview_server_pid 2>/dev/null' EXIT INT TERM; sleep 1; lan_ip=$(ipconfig getifaddr en0 || ipconfig getifaddr en1); echo \"Local preview: http://localhost:8000/\"; if [ -n \"$lan_ip\" ]; then echo \"Home network: http://$lan_ip:8000/\"; fi; open http://localhost:8000; wait $preview_server_pid",
       "options": {
         "cwd": "${workspaceFolder}"
       },

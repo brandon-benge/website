@@ -1,0 +1,127 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>MakeItOurs Security — how credentials are transported</title>
+<meta name="description" content="The technical detail behind how MakeItOurs moves your AI provider keys and GitHub tokens: transport, headers, and at-rest storage.">
+<link rel="icon" href="assets/icon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<header class="site">
+  <div class="wrap">
+    <a class="brand" href="index.html">
+      <img src="assets/icon.svg" alt="MakeItOurs icon">
+      MakeItOurs
+    </a>
+    <nav class="site">
+      <a href="getting-started.html">Getting Started</a>
+      <a href="roadmap.html">Roadmap</a>
+      <a href="support.html">Support</a>
+      <a href="privacy.html">Privacy</a>
+      <a href="security.html">Security</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+  <div class="wrap">
+    <h1>Security</h1>
+    <p class="muted">Last updated: August 14, 2026 · Benge Software LLC</p>
+
+    <p>
+      The <a href="privacy.html">Privacy Policy</a> covers what data MakeItOurs
+      handles and who it goes to. This page is the technical detail behind
+      it: exactly how your AI provider keys and GitHub tokens move over the
+      network and where they sit at rest.
+    </p>
+
+    <h2>Transport-layer baseline</h2>
+    <p>
+      MakeItOurs makes no exception to the OS's HTTPS-only default (App
+      Transport Security on Mac and iOS): every request is plain
+      <code>URLSession</code> with full system certificate validation. There
+      is no custom trust handling anywhere in the app and no code path that
+      could bypass or weaken TLS.
+    </p>
+
+    <h2>AI provider API keys</h2>
+    <p>
+      Fetching the list of models available to your key talks to each
+      provider over a hardcoded <code>https://</code> endpoint. The key
+      itself always travels in a header, never a URL — <code>Authorization:
+      Bearer</code> for OpenAI, OpenCode Zen/Go, OpenRouter, Groq, xAI,
+      DeepInfra, and Mistral; <code>x-api-key</code> for Anthropic; and
+      <code>x-goog-api-key</code> for Google. No provider request puts a
+      credential in a query string, where it could end up in a server log.
+    </p>
+    <p>
+      When MakeItOurs runs OpenCode locally on your Mac, your key is passed to
+      the OpenCode process as an environment variable — never a
+      command-line argument, so it can't leak through a process list. That
+      local control server binds to <code>127.0.0.1</code> only, with a
+      fresh random password generated at every launch; it is never
+      reachable from off your device.
+    </p>
+
+    <h2>GitHub tokens</h2>
+    <p>
+      GitHub's OAuth device flow sends <code>client_id</code>,
+      <code>device_code</code>, and <code>refresh_token</code> in a POST
+      body, never a URL, over <code>https://github.com</code>. Every other
+      GitHub API call is routed through one shared request path with a
+      hardcoded <code>https://api.github.com</code> endpoint and the token
+      carried in <code>Authorization: Bearer</code> — there's no separate,
+      hand-rolled request that could skip that path.
+    </p>
+    <p>
+      Uploading an AI provider key to GitHub as a repository Actions secret
+      is the one place GitHub itself demands more than TLS: the app fetches
+      your repository's public key and encrypts the credential on your
+      device with libsodium sealed-box encryption before sending it.
+      GitHub's servers receive only ciphertext they can't read — that
+      client-side encryption sits on top of TLS, not instead of it.
+    </p>
+
+    <h2>At-rest storage</h2>
+    <p>
+      Tokens and keys live in the OS Keychain, device-only by default (no
+      sync). They only sync via iCloud Keychain if you explicitly opt into
+      trusted-device sync — and that sync channel is itself end-to-end
+      encrypted by Apple, not something MakeItOurs implements or could weaken.
+    </p>
+
+    <h2>Net result</h2>
+    <p>
+      Every credential-carrying path in the app — AI provider requests,
+      GitHub OAuth, GitHub API calls, and the one place GitHub requires more
+      than TLS — uses standard, unmodified system transport plus the
+      specific extra encryption each provider's own API requires. Nothing
+      here relies on a server we run: the credential either stays on your
+      device, or travels encrypted, directly to the provider it belongs to.
+    </p>
+
+    <p>
+      Questions about any of this? Reach out from the
+      <a href="support.html">Support page</a>.
+    </p>
+  </div>
+</main>
+
+<footer class="site">
+  <div class="wrap">
+    <div class="links">
+      <a href="getting-started.html">Getting Started</a>
+      <a href="roadmap.html">Roadmap</a>
+      <a href="support.html">Support</a>
+      <a href="privacy.html">Privacy Policy</a>
+    </div>
+    <div>
+      &copy; 2026 Benge Software LLC ·
+      <a class="business-link" href="https://bengesoftwarellc.com" target="_blank" rel="noopener">bengesoftwarellc.com</a>
+    </div>
+  </div>
+</footer>
+</body>
+</html>

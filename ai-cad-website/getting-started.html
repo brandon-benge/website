@@ -1,0 +1,266 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Getting Started with MakeItOurs</title>
+<meta name="description" content="Everything you need before your first MakeItOurs project — an AI provider key, GitHub, platform-specific setup for Mac, iPhone, and iPad, and the day-to-day flow.">
+<link rel="icon" href="assets/icon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<header class="site">
+  <div class="wrap">
+    <a class="brand" href="index.html">
+      <img src="assets/icon.svg" alt="MakeItOurs icon">
+      MakeItOurs
+    </a>
+    <nav class="site">
+      <a href="getting-started.html">Getting Started</a>
+      <a href="roadmap.html">Roadmap</a>
+      <a href="support.html">Support</a>
+      <a href="privacy.html">Privacy</a>
+      <a href="security.html">Security</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+  <div class="wrap">
+    <h1>Getting Started</h1>
+    <p>
+      Everything you need before your first project, and the flow you'll use
+      every time after that.
+    </p>
+
+    <h2>Before you start</h2>
+    <p>
+      MakeItOurs runs on infrastructure you already control — your GitHub
+      account and your AI provider's API key — instead of a server we run
+      for you. That's a deliberate choice, not extra overhead: nothing about
+      your project or your AI usage passes through us. Right now, bringing
+      your own is the only way to use MakeItOurs; see the
+      <a href="roadmap.html">roadmap</a> for where a managed subscription
+      could take that setup off your plate later.
+    </p>
+    <ol class="step-list">
+      <li>
+        <span class="step-num">1</span>
+        <div>
+          <strong>Get an API key from an AI provider</strong>
+          <div class="muted">
+            MakeItOurs uses the AI provider you choose — see
+            <a href="#byoi">Bring your own infrastructure</a> below for the
+            full list. Create an account with that provider and generate an
+            API key before connecting a project; MakeItOurs stores it only on
+            your device.
+          </div>
+        </div>
+      </li>
+      <li>
+        <span class="step-num">2</span>
+        <div>
+          <strong>Create a free GitHub account</strong>
+          <div class="muted">
+            Your project's source, history, and generated files live in a
+            Git repository — one you create, or one someone else shares with
+            you. If you don't already have an account, follow GitHub's guide
+            to
+            <a href="https://docs.github.com/en/get-started/start-your-journey/creating-an-account-on-github" target="_blank" rel="noopener">creating an account</a>.
+          </div>
+        </div>
+      </li>
+      <li>
+        <span class="step-num">3</span>
+        <div>
+          <strong>Install the MakeItOurs GitHub App</strong>
+          <div class="muted">
+            MakeItOurs connects to GitHub through its own
+            <a href="https://github.com/apps/makeitours" target="_blank" rel="noopener">GitHub App</a>,
+            rather than a personal access token. It's a public app anyone can
+            install on your GitHub account. If you don't have any
+            repositories yet, there's nothing to select — MakeItOurs adds a
+            repository to the app automatically the moment you create a
+            project through it.
+          </div>
+        </div>
+      </li>
+    </ol>
+
+    <h3>Choose your platform</h3>
+    <p>
+      MakeItOurs works two independent ways on the same repository — use
+      either one on its own, or both together. The <strong>Mac app</strong>
+      is the faster, more capable way to manage a project: it builds and
+      previews locally, so you see results in seconds. The <strong>iPhone
+      and iPad app</strong> is the remote option — it submits requests
+      through GitHub Actions, so you can start and check on a project
+      without a Mac nearby.
+    </p>
+    <div class="platform-grid">
+      <div class="card">
+        <span class="platform-tag">Mac</span>
+        <div>Also have these installed — MakeItOurs runs them on your behalf:</div>
+        <ul>
+          <li>
+            <a href="https://support.apple.com/en-us/HT201475" target="_blank" rel="noopener">macOS 15 or newer</a>
+          </li>
+          <li>
+            <a href="https://git-scm.com/install/mac" target="_blank" rel="noopener"><code>git</code></a>
+            — reads and updates your project's history
+          </li>
+          <li>
+            <a href="https://www.python.org/downloads/macos/" target="_blank" rel="noopener">Python 3.12 or 3.13</a>
+            (<code>python3</code> on your <code>PATH</code>) — MakeItOurs
+            builds its own project virtual environment automatically, but
+            needs a system Python already present to create it
+          </li>
+          <li>
+            <a href="https://brew.sh" target="_blank" rel="noopener">Homebrew</a>,
+            then <a href="https://opencode.ai/docs/" target="_blank" rel="noopener">OpenCode</a>
+            — only if you want MakeItOurs to run OpenCode locally:
+            <code>brew install anomalyco/tap/opencode</code>
+          </li>
+        </ul>
+        <div class="muted script-note">
+          Prefer one step? Download the
+          <a href="install-mac.sh">setup script</a> and run it in Terminal —
+          it checks each item above and installs anything missing.
+          <a href="install-mac.sh">Review it first</a>, then:
+          <code>chmod +x install-mac.sh &amp;&amp; ./install-mac.sh</code>
+        </div>
+      </div>
+      <div class="card">
+        <span class="platform-tag">iPhone &amp; iPad</span>
+        <div>One more GitHub App to install:</div>
+        <div class="muted">
+          Install
+          <a href="https://github.com/apps/opencode-agent" target="_blank" rel="noopener">OpenCode Agent</a>
+          on the same repository — it runs OpenCode inside your repository's
+          GitHub Actions when you submit a request from the app. No local
+          tools, Git, or Python needed on the device itself.
+        </div>
+      </div>
+    </div>
+
+    <h2>Your first project</h2>
+    <ol class="step-list">
+      <li>
+        <span class="step-num">1</span>
+        <div>
+          <strong>Install MakeItOurs</strong>
+          <div class="muted">Available on Mac and iPhone/iPad once published to the App Store.</div>
+        </div>
+      </li>
+      <li>
+        <span class="step-num">2</span>
+        <div>
+          <strong>Connect your repository</strong>
+          <div class="muted">
+            MakeItOurs currently connects via its GitHub App, so your
+            project's source, history, and generated files live in a Git
+            repository — yours or one shared with you — not on a server we
+            run. Support for other ways to host a project is part of the
+            <a href="roadmap.html">bigger roadmap</a>.
+          </div>
+        </div>
+      </li>
+      <li>
+        <span class="step-num">3</span>
+        <div>
+          <strong>Start a project</strong>
+          <div class="muted">
+            Create a new project from a template, import one you already
+            have, or import a repository someone else shared with you.
+          </div>
+        </div>
+      </li>
+      <li>
+        <span class="step-num">4</span>
+        <div>
+          <strong>Ask for what you want</strong>
+          <div class="muted">
+            Describe the change in plain language. MakeItOurs proposes
+            Python source changes using the AI provider and model you
+            chose, then validates and builds them before you see a preview.
+          </div>
+        </div>
+      </li>
+      <li>
+        <span class="step-num">5</span>
+        <div>
+          <strong>Review, measure, and Save</strong>
+          <div class="muted">
+            Nothing is accepted automatically. Orbit the 3D result, select
+            elements, and measure it with exact dimensions, then Save to
+            create a version you can always return to. Nothing reaches your
+            repository's shared history until you choose to push — Save is
+            local until then.
+          </div>
+        </div>
+      </li>
+      <li>
+        <span class="step-num">6</span>
+        <div>
+          <strong>Share it</strong>
+          <div class="muted">
+            Send a collaborator your repository link. They can import it into
+            their own MakeItOurs and work on the same project alongside you.
+          </div>
+        </div>
+      </li>
+    </ol>
+
+    <h2 id="byoi">Bring your own infrastructure</h2>
+    <p>
+      MakeItOurs doesn't run its own AI backend, and it doesn't hold your
+      project hostage on a server we run. You connect the AI provider you
+      already trust — OpenAI, Anthropic, Google, OpenRouter, Groq, xAI,
+      DeepInfra, Mistral, or OpenCode — using your own API key, stored only
+      on your device, while your project itself lives in a Git repository,
+      not on our server. Within that provider, you also choose the model —
+      trade off sophistication against cost per request, and MakeItOurs
+      always uses the exact model you picked, never switching on its own.
+      See the <a href="privacy.html">Privacy Policy</a> for exactly what
+      that means for your data.
+    </p>
+    <p>
+      This is how MakeItOurs works today. A future subscription tier is on
+      the <a href="roadmap.html">roadmap</a> to take on GitHub and AI
+      infrastructure for you — but bringing your own will always stay
+      available as a choice, not a fallback.
+    </p>
+
+    <h2>Review and export</h2>
+    <p>
+      Every build opens in an interactive 3D viewer: orbit, select
+      individual elements, and measure with exact dimensions rather than an
+      approximation. From there you can:
+    </p>
+    <ul>
+      <li>Download the drawings for quick reference — SVG, DXF, and PDF.</li>
+      <li>
+        Export the full model to STEP, IFC4, GLB, SVG, DXF, PDF, CSV, JSON,
+        and Markdown, so it's ready for whatever CAD, BIM, or spreadsheet
+        tool you already use.
+      </li>
+    </ul>
+  </div>
+</main>
+
+<footer class="site">
+  <div class="wrap">
+    <div class="links">
+      <a href="roadmap.html">Roadmap</a>
+      <a href="support.html">Support</a>
+      <a href="privacy.html">Privacy Policy</a>
+      <a href="security.html">Security</a>
+    </div>
+    <div>
+      &copy; 2026 Benge Software LLC ·
+      <a class="business-link" href="https://bengesoftwarellc.com" target="_blank" rel="noopener">bengesoftwarellc.com</a>
+    </div>
+  </div>
+</footer>
+</body>
+</html>

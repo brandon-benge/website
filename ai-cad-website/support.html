@@ -3,23 +3,24 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>AI CAD Support</title>
-<meta name="description" content="Get help with AI CAD, or reach Benge Software LLC.">
-<link rel="icon" href="assets/icon.png">
+<title>MakeItOurs Support</title>
+<meta name="description" content="Get help with MakeItOurs, or reach Benge Software LLC.">
+<link rel="icon" href="assets/icon.svg" type="image/svg+xml">
 <link rel="stylesheet" href="styles.css">
 </head>
 <body>
 <header class="site">
   <div class="wrap">
     <a class="brand" href="index.html">
-      <img src="assets/icon.png" alt="AI CAD icon">
-      AI CAD
+      <img src="assets/icon.svg" alt="MakeItOurs icon">
+      MakeItOurs
     </a>
     <nav class="site">
-      <a href="index.html">Getting Started</a>
+      <a href="getting-started.html">Getting Started</a>
       <a href="roadmap.html">Roadmap</a>
       <a href="support.html">Support</a>
       <a href="privacy.html">Privacy</a>
+      <a href="security.html">Security</a>
     </nav>
   </div>
 </header>
@@ -28,7 +29,7 @@
   <div class="wrap">
     <h1>Support</h1>
     <p>
-      Questions, bug reports, or feedback about AI CAD — we'd like to hear
+      Questions, bug reports, or feedback about MakeItOurs — we'd like to hear
       from you.
     </p>
 
@@ -41,25 +42,46 @@
 
     <h2>Good to know</h2>
     <p>
-      AI CAD uses AI to propose design changes and can, at your direction,
+      MakeItOurs uses AI to propose design changes and can, at your direction,
       push those changes to your repository or permanently delete a project.
-      A couple of things worth keeping in mind:
+      A few things worth keeping in mind:
     </p>
     <ul>
       <li>
-        AI-generated changes are proposals, not guarantees — review a
-        preview before you accept or push a change.
+        AI-generated changes are proposals, not guarantees. After a build,
+        choose <strong>Rebuild</strong>, <strong>Save</strong>, or
+        <strong>Discard Changes</strong> — Save creates a version you can
+        always return to from <strong>Activity</strong>, where every saved
+        version has its own <strong>Revert</strong>.
       </li>
       <li>
         Destructive actions, like deleting a project repository, always
         require your explicit confirmation and cannot be undone by us
         afterward.
       </li>
+      <li>
+        You're responsible for monitoring your own AI provider and GitHub
+        usage and spending — MakeItOurs doesn't track, cap, or alert on budget
+        for either.
+      </li>
+      <li>
+        GitHub is the system of record for your project, and you're
+        responsible for the actions you take against it. We don't take
+        accountability for a corrupted project, and local data on your Mac
+        is not backed up by MakeItOurs.
+      </li>
+      <li>
+        You can edit a project in another IDE, but a later upgrade could
+        overwrite files it manages. The only files guaranteed never to be
+        touched by an upgrade are <code>config.py</code>,
+        <code>model.py</code>, and <code>drawing_annotations.py</code> —
+        changes anywhere else are outside what we can guarantee.
+      </li>
     </ul>
 
-    <h2>Interested in AI CAD V2?</h2>
+    <h2>Interested in MakeItOurs V2?</h2>
     <p>
-      We're shaping a bigger, funding-dependent direction for AI CAD — see
+      We're shaping a bigger, funding-dependent direction for MakeItOurs — see
       the <a href="roadmap.html">Roadmap</a>. If you'd like to support that
       work as a customer, investor, or collaborator, mention it in your
       email.
@@ -70,9 +92,10 @@
 <footer class="site">
   <div class="wrap">
     <div class="links">
-      <a href="index.html">Getting Started</a>
+      <a href="getting-started.html">Getting Started</a>
       <a href="roadmap.html">Roadmap</a>
       <a href="privacy.html">Privacy Policy</a>
+      <a href="security.html">Security</a>
     </div>
     <div>
       &copy; 2026 Benge Software LLC ·
