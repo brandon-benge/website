@@ -11,7 +11,7 @@
 #   ./install-mac.sh
 #
 # Or run it directly:
-#   curl -fsSL https://bengesoftwarellc.com/ai-cad-website/install-mac.sh | bash
+#   curl -fsSL https://bengesoftwarellc.com/makeitours-website/install-mac.sh | bash
 
 set -euo pipefail
 

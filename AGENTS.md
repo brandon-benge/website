@@ -6,7 +6,7 @@ for local preview and publishing details).
 ## Contact Emails
 
 Never use a personal email address (e.g. `llcbrandonbenge@gmail.com`)
-anywhere in this website or the `ai-cad-website/` subsite. Always use one of
+anywhere in this website or the `makeitours-website/` subsite. Always use one of
 the following `@bengesoftwarellc.com` addresses, chosen by the purpose of the
 page or section:
 
