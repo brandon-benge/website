@@ -85,7 +85,7 @@
         <article class="journey-card phone-demo">
           <div class="journey-step"><span>1</span> iPhone</div>
           <h3>Describe the idea</h3>
-          <p>Choose your Git project, bring your own AI infrastructure, and ask for the change in everyday language.</p>
+          <p>Choose your project and ask for the change in everyday language. Subscribers use the managed MakeItOurs build service; the bring-your-own-infrastructure option uses your GitHub and AI provider.</p>
           <video autoplay loop muted playsinline preload="auto" aria-label="Describe a swing-set idea in MakeItOurs on iPhone">
             <source src="assets/journey/01-describe-on-iphone.mp4" type="video/mp4">
           </video>
@@ -169,41 +169,44 @@
       <div class="card">
         <h3>🤝 Yours to keep and share</h3>
         <p>
-          Every version is saved so you can always go back. Your project
-          lives in a Git repository you control, and you can share it so
-          others can work on it with you.
+          Every version is saved so you can always go back. Your project is
+          versioned in Git—managed by MakeItOurs for subscribers, or in your
+          own GitHub repository when you bring your own infrastructure—and
+          you can share it so others can work on it with you.
         </p>
       </div>
     </div>
 
-    <h2>Your infrastructure, not ours</h2>
+    <h2>Managed for you, or run on your infrastructure</h2>
     <p>
-      MakeItOurs doesn't run its own AI backend or hold your project hostage
-      on a server we run. You bring your own GitHub account and your own AI
-      provider key — OpenAI, Anthropic, Google, OpenRouter, Groq, xAI,
-      DeepInfra, Mistral, or OpenCode — and MakeItOurs uses exactly the
-      model you picked, never switching on its own. See
+      The optional MakeItOurs subscription includes a managed project store,
+      AI service, build pipeline, version history, and previews. Subscribers
+      do not choose the AI provider or supply an AI API key; MakeItOurs runs
+      and supports that infrastructure. If you prefer to manage the stack
+      yourself without a subscription, you can use your own GitHub account,
+      GitHub Actions workflows, and supported AI provider and key. See
       <a href="getting-started.html#byoi">Bring your own infrastructure</a>
-      for the full detail, or <a href="security.html">Security</a> for
-      exactly how credentials are transported and stored.
+      for that option, <a href="privacy.html">Privacy</a> for what each path
+      stores, or <a href="security.html">Security</a> for how credentials are
+      transported and stored.
     </p>
 
     <h2>Mac, iPhone, and iPad — your choice</h2>
     <p>
-      The <strong>Mac app</strong> is the faster, more capable way to
-      manage a project: it builds and previews locally. The
-      <strong>iPhone and iPad app</strong> is the remote option — it
-      submits requests through GitHub Actions, so you can start and check
-      on a project without a Mac nearby. Use either on its own, or both
-      together on the same repository.
+      The core project experience is available across Mac, iPhone, and iPad.
+      With the managed subscription, MakeItOurs handles requests and builds
+      in its service. With bring-your-own infrastructure, requests that run
+      through GitHub Actions have additional GitHub queue and workflow
+      latency. Use any supported device on its own, or use them together on
+      the same project.
     </p>
 
     <div class="card">
       <strong>Ready to try it?</strong>
       <p class="muted" style="margin: 8px 0 0;">
         <a href="getting-started.html">Getting Started</a> walks through
-        everything you need — an AI provider key, a GitHub account, and
-        platform-specific setup — before your first project.
+        everything you need for either the managed subscription or the
+        bring-your-own-infrastructure setup before your first project.
       </p>
     </div>
 

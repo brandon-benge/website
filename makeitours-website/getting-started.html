@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Getting Started with MakeItOurs</title>
-<meta name="description" content="Everything you need before your first MakeItOurs project — an AI provider key, GitHub, platform-specific setup for Mac, iPhone, and iPad, and the day-to-day flow.">
+<meta name="description" content="Everything you need before your first MakeItOurs project, whether you choose the managed subscription or bring your own infrastructure.">
 <link rel="icon" href="assets/icon.svg" type="image/svg+xml">
 <link rel="stylesheet" href="styles.css">
 </head>
@@ -35,14 +35,13 @@
 
     <h2>Before you start</h2>
     <p>
-      MakeItOurs runs on infrastructure you already control — your GitHub
-      account and your AI provider's API key — instead of a server we run
-      for you. That's a deliberate choice, not extra overhead: nothing about
-      your project or your AI usage passes through us. Right now, bringing
-      your own is the only way to use MakeItOurs; see the
-      <a href="roadmap.html">roadmap</a> for where a managed subscription
-      could take that setup off your plate later.
+      Choose the optional managed subscription or
+      <a href="#byoi">bring your own infrastructure</a>. The subscription
+      includes MakeItOurs-managed project storage, AI, and builds, so you do
+      not need GitHub or an AI provider key for that path. If you prefer to
+      manage your own stack, use the setup below.
     </p>
+    <h3>Bring-your-own-infrastructure setup</h3>
     <ol class="step-list">
       <li>
         <span class="step-num">1</span>
@@ -89,13 +88,11 @@
 
     <h3>Choose your platform</h3>
     <p>
-      MakeItOurs works two independent ways on the same repository — use
-      either one on its own, or both together. The <strong>Mac app</strong>
-      is the faster, more capable way to manage a project: it builds and
-      previews locally, so you see results in seconds. The <strong>iPhone
-      and iPad app</strong> is the remote option — it submits requests
-      through GitHub Actions, so you can start and check on a project
-      without a Mac nearby.
+      The core project experience is available on Mac, iPhone, and iPad—use
+      one device or use them together. Managed-subscription requests run on
+      the MakeItOurs service. With bring-your-own infrastructure, the Mac can
+      build locally while iPhone and iPad submit work through GitHub Actions;
+      GitHub's queue and workflows add latency to that path.
     </p>
     <div class="platform-grid">
       <div class="card">
@@ -213,22 +210,22 @@
 
     <h2 id="byoi">Bring your own infrastructure</h2>
     <p>
-      MakeItOurs doesn't run its own AI backend, and it doesn't hold your
-      project hostage on a server we run. You connect the AI provider you
-      already trust — OpenAI, Anthropic, Google, OpenRouter, Groq, xAI,
+      This non-subscription option does not use the managed MakeItOurs AI or
+      project datastore. You connect the AI provider you trust—OpenAI,
+      Anthropic, Google, OpenRouter, Groq, xAI,
       DeepInfra, Mistral, or OpenCode — using your own API key, stored only
       on your device, while your project itself lives in a Git repository,
-      not on our server. Within that provider, you also choose the model —
+      not in the managed service. Within that provider, you also choose the model—
       trade off sophistication against cost per request, and MakeItOurs
       always uses the exact model you picked, never switching on its own.
       See the <a href="privacy.html">Privacy Policy</a> for exactly what
       that means for your data.
     </p>
     <p>
-      This is how MakeItOurs works today. A future subscription tier is on
-      the <a href="roadmap.html">roadmap</a> to take on GitHub and AI
-      infrastructure for you — but bringing your own will always stay
-      available as a choice, not a fallback.
+      The managed subscription is the alternative: MakeItOurs provides the
+      project datastore, selects the AI provider, and runs the complete build
+      pipeline. Bringing your own remains available for users who prefer
+      GitHub as their source of truth and direct control of the infrastructure.
     </p>
 
     <h2>Review and export</h2>
