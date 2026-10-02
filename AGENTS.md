@@ -19,3 +19,9 @@ page or section:
 
 If a new page needs a contact address, pick the closest match from this list
 rather than introducing a new address or reusing a personal one.
+
+## Git Persistence
+
+Use plain Git to commit and push when explicitly requested. Do not use
+autocommit or its wrappers. Creating or merging pull requests requires user
+authorization; a commit-and-push request alone does not authorize deployment.
