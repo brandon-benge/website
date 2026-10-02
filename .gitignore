@@ -1,1 +1,6 @@
 .DS_Store
+_site/
+.site-source/
+.site-build-*/
+__pycache__/
+*.pyc

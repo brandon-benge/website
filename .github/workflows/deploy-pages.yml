@@ -27,6 +27,34 @@ jobs:
         with:
           submodules: false
           lfs: false
+          persist-credentials: false
+
+      - name: Read pinned website revision
+        id: website
+        run: |
+          python3 - <<'PY' >> "$GITHUB_OUTPUT"
+          from pathlib import Path
+          from scripts.build_site import read_pin
+          pin = read_pin(Path.cwd())
+          print(f"repository={pin['repository']}")
+          print(f"ref={pin['ref']}")
+          PY
+
+      - name: Check out the pinned MakeItOurs website
+        uses: actions/checkout@v4
+        with:
+          repository: ${{ steps.website.outputs.repository }}
+          ref: ${{ steps.website.outputs.ref }}
+          path: .site-source/makeitours-website
+          submodules: false
+          lfs: false
+          persist-credentials: false
+
+      - name: Verify site assembly
+        run: python3 -m unittest discover -s tests -p 'test_build_site.py'
+
+      - name: Assemble public website files
+        run: python3 scripts/build_site.py --source .site-source/makeitours-website
 
       - name: Configure GitHub Pages
         uses: actions/configure-pages@v5
@@ -34,7 +62,7 @@ jobs:
       - name: Package static website
         uses: actions/upload-pages-artifact@v3
         with:
-          path: .
+          path: _site
 
       - name: Deploy to GitHub Pages
         id: deployment
