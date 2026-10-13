@@ -69,3 +69,12 @@ workspace submodule update separately when advancing its development checkout.
 
 The assembly and preview commands also include company-site working edits.
 CI takes those files from its checked-out central commit.
+
+## Customer documentation
+
+The public website now includes generated `docs/` pages and animation assets.
+Their Markdown/catalog sources and Node renderer live in the independent public
+website repository. Render there with `npm run docs:build` before the central
+preview. This repository's assembler remains Python-only, publishes only allowed
+web file types from `docs/`, and retains tracked-file/exact-SHA release checks.
+It never consumes the private control-plane document source or rendered output.

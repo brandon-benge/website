@@ -59,6 +59,31 @@ class BuildSiteTests(unittest.TestCase):
         with self.assertRaisesRegex(ValueError, "missing"):
             build_site(self.root, self.source / "missing")
 
+    def test_documentation_publishes_only_tracked_web_outputs(self):
+        for name in ("docs/index.html", "docs/assets/workflow.js", "docs/assets/docs.css",
+                     "docs/draft.md", "docs/catalog.json", "content/docs/private.md"):
+            path = self.source / name
+            path.parent.mkdir(parents=True, exist_ok=True)
+            path.write_text(name)
+        self.git("add", ".")
+        self.git("-c", "user.name=Test", "-c", "user.email=contact@bengesoftwarellc.com", "commit", "-qm", "docs fixture")
+        self.pin["makeitours"]["ref"] = self.git("rev-parse", "HEAD")
+        self.write_pin()
+        output = build_site(self.root, self.source) / "makeitours-website"
+        for name in ("docs/index.html", "docs/assets/workflow.js", "docs/assets/docs.css"):
+            self.assertTrue((output / name).is_file(), name)
+        for name in ("docs/draft.md", "docs/catalog.json", "content"):
+            self.assertFalse((output / name).exists(), name)
+        (self.source / ".git/info/exclude").write_text("docs/local.html\n")
+        (self.source / "docs/local.html").write_text("unreviewed draft")
+        self.assertFalse((build_site(self.root, self.source) / "makeitours-website/docs/local.html").exists())
+
+    def test_documentation_symlink_rejected_in_preview(self):
+        (self.source / "docs").mkdir()
+        (self.source / "docs/leak.html").symlink_to(self.root / "README.md")
+        with self.assertRaisesRegex(ValueError, "symlink"):
+            build_site(self.root, self.source, release=False)
+
     def test_wrong_revision_fails(self):
         self.pin["makeitours"]["ref"] = "0" * 40
         self.write_pin()

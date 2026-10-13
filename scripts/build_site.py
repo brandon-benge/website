@@ -78,6 +78,17 @@ def build_site(root, source, release=True):
         for name in company:
             copy_public(root / name, stage / name)
         website = [".nojekyll", *WEBSITE_DIRS]
+        # Optional for older pinned revisions. Only reviewed generated web files
+        # are eligible; authoring catalogs, Markdown and scripts stay out.
+        docs = source / "docs"
+        if docs.is_symlink():
+            raise ValueError("Public documentation cannot be a symlink")
+        if docs.exists():
+            for path in sorted(docs.rglob("*")):
+                if path.is_symlink():
+                    raise ValueError("Public documentation cannot contain symlinks")
+                if path.is_file() and path.suffix in {".html", ".css", ".js", ".svg", ".png", ".webp"}:
+                    copy_public(path, stage / "makeitours-website" / path.relative_to(source), tracked)
         website += [p.name for pattern in ("*.html", "*.css", "*.sh") for p in source.glob(pattern)]
         for name in website:
             copy_public(source / name, stage / "makeitours-website" / name, tracked)
