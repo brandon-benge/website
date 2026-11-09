@@ -58,7 +58,11 @@ page or section:
 
 - `feature@bengesoftwarellc.com` — feature requests, roadmap suggestions.
 - `privacy@bengesoftwarellc.com` — privacy policy questions, data requests.
-- `support@bengesoftwarellc.com` — bug reports, troubleshooting, product support.
+- `makeitours-support@bengesoftwarellc.com` — MakeItOurs bug reports,
+  problem reports, troubleshooting and product support (owner, 2026-11-09,
+  makeitours#92).
+- `support@bengesoftwarellc.com` — bug reports, troubleshooting, product
+  support outside MakeItOurs.
 - `contact@bengesoftwarellc.com` — general inquiries, terms questions,
   anything that doesn't fit the categories above.
 
