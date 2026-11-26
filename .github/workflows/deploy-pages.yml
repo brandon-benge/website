@@ -7,6 +7,7 @@ on:
   workflow_dispatch:
 
 permissions:
+  actions: read
   contents: read
   pages: write
   id-token: write
@@ -16,10 +17,10 @@ concurrency:
   cancel-in-progress: false
 
 jobs:
-  deploy:
-    environment:
-      name: github-pages
-      url: ${{ steps.deployment.outputs.page_url }}
+  # Build and deploy are separate jobs (website#31). The deploy job starts only
+  # after the upload has finalized, and "Re-run failed jobs" on a failed deploy
+  # reuses the uploaded artifact instead of uploading a duplicate.
+  build:
     runs-on: ubuntu-latest
     steps:
       - name: Check out public website files
@@ -63,6 +64,31 @@ jobs:
         uses: actions/upload-pages-artifact@v3
         with:
           path: _site
+
+  deploy:
+    needs: build
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    runs-on: ubuntu-latest
+    steps:
+      # The run's artifact listing is eventually consistent: deploy-pages has
+      # found 0 artifacts moments after a successful upload (website#31).
+      - name: Wait for the Pages artifact to be listed
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          for attempt in $(seq 1 12); do
+            count=$(gh api "repos/${GITHUB_REPOSITORY}/actions/runs/${GITHUB_RUN_ID}/artifacts?name=github-pages" --jq '.total_count' || echo 0)
+            if [ "${count:-0}" -ge 1 ]; then
+              echo "github-pages artifact listed (attempt ${attempt})."
+              exit 0
+            fi
+            echo "github-pages artifact not listed yet (attempt ${attempt}); waiting 10s."
+            sleep 10
+          done
+          echo "::error::github-pages artifact was not listed for run ${GITHUB_RUN_ID} after 2 minutes."
+          exit 1
 
       - name: Deploy to GitHub Pages
         id: deployment

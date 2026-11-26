@@ -47,6 +47,11 @@ The assembled root includes `CNAME` and `.nojekyll`; the domain and relative lin
 are unchanged. The script explicitly selects public content and omits repository
 metadata, private workspace files and caches.
 
+The workflow has a `build` job (assemble and upload the `github-pages` artifact)
+and a `deploy` job that waits until that artifact is listed for the run before
+publishing. If only `deploy` fails, use **Re-run failed jobs**: it reuses the
+uploaded artifact (website#31).
+
 To release a website change:
 
 1. Commit and push the website changes to its independent repository.
